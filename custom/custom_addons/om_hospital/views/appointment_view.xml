@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-     <record id="view_hospital_appointment_activity" model="ir.ui.view">
+    <record id="view_hospital_appointment_activity" model="ir.ui.view">
         <field name="name">hospital.appointment.activity</field>
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
@@ -9,7 +9,8 @@
                 <field name="ref"/>
                 <templates>
                     <div t-name="activity-box">
-                        <img t-att-src="activity_image('hospital.patient', 'image', record.patient_id.raw_value)" t-att-title="record.patient_id.value" t-att-alt="record.patient_id.value"/>
+                        <img t-att-src="activity_image('hospital.patient', 'image', record.patient_id.raw_value)"
+                             t-att-title="record.patient_id.value" t-att-alt="record.patient_id.value"/>
                         <div>
                             <field name="ref" display="full"/>
                         </div>
@@ -63,8 +64,11 @@
                             states="draft" data-hotkey="x"/>
                     <button name="action_done" string="Done" type="object" class="oe_highlight" states="in_consultation"
                             data-hotkey="v"/>
-                    <button name="action_cancel" string="Cancel" type="object" states="in_consultation,draft"
-                            data-hotkey="z"/>
+                    <button name="action_cancel" string="Cancel" type="object" states="in_consultation,draft" data-hotkey="z"/>
+<!--                    <button name="%(om_hospital.action_cancel_appointment)d"-->
+<!--                            context="{'default_appointment_id':active id}" string="Cancel" type="action"-->
+<!--                            states="in_consultation,draft"-->
+<!--                            data-hotkey="z"/>-->
                     <button name="action_draft" string="Reset To Draft" type="object" states="in_consultation"
                             data-hotkey="n"/>
                     <!-- options="{'clickable': '1'}"-->
@@ -93,10 +97,12 @@
                             <field name="appointment_time"/>
                             <button name="action_test" string="Test Button" type="object"
                                     help="A message will be printerd in the log section"
-                                    confirm="Are you sure the pyhton code" group="base.group_no_one" class="oe_highlight"/>
+                                    confirm="Are you sure the pyhton code" group="base.group_no_one"
+                                    class="oe_highlight"/>
                             <button name="%(om_hospital.action_hospital_patient)d" string="Action Button"
                                     confirm="Are you sure the action button"
-                                    help="on clicke the button, you will redirect the patient record" group="base.group_no_one" type="action"
+                                    help="on clicke the button, you will redirect the patient record"
+                                    group="base.group_no_one" type="action"
                                     class="oe_highlight"/>
                         </group>
                     </group>
@@ -143,7 +149,7 @@
             </p>
         </field>
     </record>
-<menuitem id="menu_appointment_master"
+    <menuitem id="menu_appointment_master"
               name="Appointment"
               action="action_hospital_appointment"
               parent="menu_hospital_root"
