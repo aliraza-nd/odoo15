@@ -10,7 +10,7 @@
                 <field name="age"/>
                 <field name="ref"/>
                 <field name="gender"/>
-                    <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
             </tree>
 
         </field>
@@ -29,16 +29,16 @@
                 <filter name="filter_male" string="Male" domain="[('gender','=','male')]"/>
                 <filter name="filter_female" string="Female" domain="[('gender','=','female')]"/>
 
-<!--                <separator/>-->
-<!--                <filter name="filter_kids" string="Kids" domain="[('age','&lt;=','5')]"/>-->
+                <!--                <separator/>-->
+                <!--                <filter name="filter_kids" string="Kids" domain="[('age','&lt;=','5')]"/>-->
                 <separator/>
                 <filter name="filter_archived" string="Archived" domain="[('active','=',False)]"/>
                 <group expand="0" string="Group By">
                     <filter name="Gender" string="group_by_gender" context="{'group_by':'gender'}"/>
                 </group>
-                 <searchpanel>
-                        <field name="gender" icon="fa-users" select="multi" enable_counters="1"/>
-                    </searchpanel>
+                <searchpanel>
+                    <field name="gender" icon="fa-users" select="multi" enable_counters="1"/>
+                </searchpanel>
             </search>
         </field>
     </record>
@@ -56,7 +56,9 @@
                             <field name="name"/>
                             <field name="date_of_birth"/>
                             <field name="age"/>
-                            <field name="appointment_id"/>
+<!--                            <field name="appointment_ids"/>-->
+<!--                            <field name="appointment_count"/>-->
+                            <!-- <field name="operation"/>-->
                         </group>
                         <group>
                             <field name="ref"/>
@@ -65,10 +67,15 @@
                             <field name="active" invisible="1"/>
                         </group>
                     </group>
+                    <group string="Other Information" name="other_info">
+                        <field name="parent" attrs="{'invisible': ['|', ('age','>','18'), ('gender','=','male')]}"/>
+                        <field name="martial_status"/>
+                        <field name="partner_name"/>
+                    </group>
                 </sheet>
                 <!--chatter-->
                 <div class="oe_chatter">
-                        <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="message_follower_ids" groups="base.group_user"/>
                     <field name="activity_ids"/>
                     <field name="message_ids"/>
                 </div>

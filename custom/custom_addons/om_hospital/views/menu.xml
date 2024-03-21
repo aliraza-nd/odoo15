@@ -18,7 +18,13 @@
               parent="menu_hospital_root"
               sequence="20"/>
 
-      <menuitem id="manu_configuration"
+    <menuitem id="menu_hospital_operation"
+              name="Operation"
+              action="action_hospital_operation"
+              parent="menu_configuration"
+              sequence="40"/>
+
+    <menuitem id="menu_configuration"
               name="Configurations"
               parent="menu_hospital_root"
               sequence="30"/>

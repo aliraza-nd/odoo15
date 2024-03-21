@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <template id="report_patient_detail">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 align="center">Patient's Appointment Details</h2>
+                    </div>
+
+                    <div class="page">
+                        <div class="oe_structure">
+                            <div class="row">
+                                <div class="col-sx-8">
+                                    <table class="table table-condensed" style="border:3px slid black !important;">
+                                        <tr>
+                                            <td style="border:1px" width="40%">
+                                                <p style="text-align:center;padding-top:10px">
+                                                    <img t-if="not o.image"
+                                                         t-att-src="'/web/static/src/img/placeholder.png'"
+                                                         height="140"
+                                                         border="1" width="120"/>
+                                                    <img t-if="o.image"
+                                                         t-att-src="image_data_uri(o.image)"
+                                                         height="140"
+                                                         border="1" width="120"/>
+                                                </p>
+                                            </td>
+                                            <td width="60%">
+                                                <table>
+                                                    <tr>
+                                                        <td colspan="3" class="text-center">
+                                                            <span t-field="o.name"/>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span>
+                                                                <strong>age:</strong>
+                                                            </span>
+                                                        </td>
+                                                        <td>
+                                                            <span>:</span>
+                                                        </td>
+                                                        <td>
+                                                            <span t-field="o.age"/>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span>
+                                                                <strong>Reference</strong>
+                                                            </span>
+                                                        </td>
+                                                        <td>
+                                                            <span>:</span>
+                                                        </td>
+                                                        <td>
+                                                            <span t-field="o.ref"/>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <br/>
+                    <table class="table table-sm o_maim_table" mame="appointment">
+                        <thead>
+                            <tr>
+                                <th name="th_name" class="text-left">
+                                    <span>Name</span>
+                                </th>
+                                <th name="th_age" class="text-left">
+                                    <span>Age</span>
+                                </th>
+                                <th name="th_ref" class="text-left">
+                                    <span>Reference</span>
+                                </th>
+                            </tr>
+
+                        </thead>
+
+                        <tr>
+                            <td>
+                                <span t-field="o.name"/>
+                            </td>
+
+
+                            <td>
+                                <span t-field="o.age"/>
+                            </td>
+
+
+                            <td>
+                                <span t-field="o.ref"/>
+                            </td>
+                        </tr>
+
+                    </table>
+                </t>
+            </t>
+        </t>
+    </template>
+
+
+</odoo>
