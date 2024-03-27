@@ -29,11 +29,22 @@
               parent="menu_hospital_root"
               sequence="30"/>
 
-    <menuitem id="manu_cancel_appointment"
+    <menuitem id="menu_cancel_appointment"
               name="Cancellation"
               parent="menu_patient_master"
               action="action_cancel_appointment"
               sequence="20"/>
+
+    <menuitem id="menu_reporting"
+              name="Reporting"
+              parent="menu_hospital_root"
+              sequence="40"/>
+
+    <menuitem id="menu_reporting_report"
+              name="Appointment"
+              parent="menu_reporting"
+              action="action_report_patient_appointment_xlsx"
+              sequence="10"/>
 
 
 </odoo>

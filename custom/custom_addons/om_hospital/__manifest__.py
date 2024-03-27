@@ -16,6 +16,7 @@
         'data/patient_tag_data.xml',
         'data/patient.tag.csv',
         'wizard/cancel_appointment_view.xml',
+        'wizard/appointment_report_view.xml',
         'views/menu.xml',
         'views/odoo_playground_view.xml',
         'views/operation_view.xml',
